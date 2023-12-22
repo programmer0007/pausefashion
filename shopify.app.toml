@@ -1,0 +1,25 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "pausefashion"
+client_id = "07873469a7615d41ce4645b790559c25"
+application_url = "https://shopify.dev/apps/default-app-home"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_discounts,read_discounts,write_gift_cards,read_gift_cards,read_customers,write_customers"
+
+[auth]
+redirect_urls = [
+  "https://dddemo.net/php/2023/shopify_app_install/generate_token.php",
+  "https://shopify.dev/apps/default-app-home/api/auth"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "store-for-extensions.myshopify.com"
