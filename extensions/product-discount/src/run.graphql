@@ -1,0 +1,59 @@
+query RunInput {
+  cart {
+    cost {
+      subtotalAmount {
+        amount
+      }
+      totalAmount {
+        amount
+      }
+    }
+    buyerIdentity {
+      customer {
+        id
+        amountSpent {
+          amount
+          currencyCode
+        }
+        metafield(namespace: "custom",key: "tags") {
+          value
+        }
+      }
+    }
+    lines {
+      id
+      cost {
+        amountPerQuantity {
+          amount
+        }
+        subtotalAmount {
+          amount
+        }
+        totalAmount {
+          amount
+        }
+      }
+      quantity
+      merchandise {
+        productType: __typename
+        ... on ProductVariant {
+          id
+          product {
+            id
+            isGiftCard
+            productType
+          }
+        }
+        ... on CustomProduct {
+          title
+          isGiftCard
+        }
+      }
+    }
+  }
+  discountNode {
+    metafield(namespace: "product-discount", key: "function-configuration") {
+      value
+    }
+  }
+}
